@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
-import { FlightAction } from '../../redux/actions/FlightActions'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 import Lottie from "react-lottie"
 import loading from "../../assets/lotti/loading.json"
@@ -10,31 +8,13 @@ import FlightCard from '../../components/flightCard/FlightCard';
 
 const Flights = () => {
 
-    const dispatch = useDispatch()
     const flights = useSelector(state => state.flightReducer)
-    console.log(flights)
-    // const [flights, setData] = useState({})
-
-    useEffect(() => {
-        setTimeout(() => {
-            fetchData()
-        }, 5000)
-    }, [])
 
 
-    const fetchData = () => {
-        axios.get('https://react-dj-flight-app.herokuapp.com/api/flights/')
-            .then(({ data }) => {
-                // console.log("axios", data)
-                dispatch(FlightAction(data))
-            })
-            .catch(error => console.error(error))
-    }
-
-    if (flights.length == 0) {
+    if (flights.length === 0) {
         return (
 
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex justify-content-center align-items-center w-50 mx-auto mt-5">
                 <Lottie
                     options={{
                         animationData: loading
@@ -45,15 +25,13 @@ const Flights = () => {
     }
 
     return (
-        <div className="container pt-4">
-            <div className="row">
-                {/* <div> */}
+        <div className="container py-4">
+            <div className="row mx-1">
                     {
                         flights.map((flight, index) => (
                             <FlightCard key={index} flight={flight} />
                         ))
                     }
-                {/* </div> */}
             </div>
         </div>
     )

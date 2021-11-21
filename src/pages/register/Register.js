@@ -35,13 +35,13 @@ const Register = () => {
                     password: values.password1
                 }
 
-                axios.post("https://react-dj-flight-app.herokuapp.com/user/register/", newValues)
+                axios.post("https://react-dj-flight-api.herokuapp.com/user/register/", newValues)
                     .then((response) => {
                         console.log(response);
                         dispatch(LoginAction(response.data.token));
                     })
                     .catch((error) => {
-                        console.log(error.data.username);
+                        console.log(error);
                     })
 
             }}

@@ -27,8 +27,7 @@ const Login = () => {
 
 
             onSubmit={(values, { setSubmitting }) => {
-
-                axios.post("https://react-dj-flight-app.herokuapp.com/user/login/", values)
+                axios.post("https://react-dj-flight-api.herokuapp.com/user/login/", values)
                     .then((response) => {
                         // console.log(response);
                         dispatch(LoginAction(response.data.token));
