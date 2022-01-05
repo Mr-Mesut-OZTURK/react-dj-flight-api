@@ -1,4 +1,4 @@
-import React from 'react'
+import { memo } from 'react'
 import Lottie from 'react-lottie'
 import animation1 from '../../assets/lotti/fly-animation-1.json'
 import animation2 from '../../assets/lotti/fly-plane-loading.json'
@@ -51,4 +51,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default memo(Home)

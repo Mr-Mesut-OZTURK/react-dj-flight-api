@@ -27,7 +27,7 @@ class ForReservationList(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return request.user.is_superuser
         else:
-            return request.user
+            return bool(request.user)
 
 class ForReservationDetail(permissions.BasePermission):
     

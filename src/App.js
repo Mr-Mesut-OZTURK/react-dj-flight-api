@@ -17,7 +17,8 @@ function App() {
 
   useEffect(() => {
     fetchData()
-  }, [])
+    // console.log("object")
+  })
 
 
   const fetchData = () => {

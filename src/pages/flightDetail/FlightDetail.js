@@ -20,6 +20,8 @@ const FlightDetail = () => {
 
     const { id } = useParams()
     const flight = useSelector(state => state.flightReducer).filter(item => item.id.toString() === id)[0]
+    const key = useSelector(state => state.loginReducer)
+    console.log(key)
 
     const [data, setData] = useState([
         {
@@ -48,7 +50,12 @@ const FlightDetail = () => {
     }
 
     const handleClick = () => {
-        axios.post('https://react-dj-flight-api.herokuapp.com/api/reservations/')
+        axios.post('https://react-dj-flight-api.herokuapp.com/api/reservations/', {
+            "user": "",
+            "user_type": "",
+            "flight": id,
+            "checkin": false
+        })
             .then((response) => alert(response))
             .catch((error) => console.log(error))
     }
@@ -108,7 +115,7 @@ const FlightDetail = () => {
                     setUserType={setUserType}
                     data={data}
                 />
-                <span className="btn btn-outline-primary">
+                <span className="alert alert-primary py-2">
                     {userType.type}
                 </span>
             </div>

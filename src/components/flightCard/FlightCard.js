@@ -10,7 +10,7 @@ const FlightCard = ({ flight }) => {
 
 
     return (
-        <Card className="my-3 px-0 shadow">
+        <Card className="my-3 px-0 shadow" style={{minWidth: "250px"}}>
             <CardHeader className="alert alert-primary d-flex flex-row justify-content-between">
                 <h3>
                     {flight.departure_city.name}

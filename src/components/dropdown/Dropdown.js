@@ -23,7 +23,7 @@ const Dropdown = ({ data, setUserType }) => {
                     {
                         data.map((item, index) => (
                             <DropdownItem 
-                            index={index}
+                            key={index}
                             onClick={()=> setUserType(item)}
                             >
                                 {item.type}

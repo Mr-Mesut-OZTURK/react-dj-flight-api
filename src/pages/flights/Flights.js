@@ -14,7 +14,7 @@ const Flights = () => {
     if (flights.length === 0) {
         return (
 
-            <div className="d-flex justify-content-center align-items-center w-50 mx-auto mt-5">
+            <div className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
                 <Lottie
                     options={{
                         animationData: loading
@@ -28,8 +28,8 @@ const Flights = () => {
         <div className="container py-4">
             <div className="row mx-1">
                     {
-                        flights.map((flight, index) => (
-                            <FlightCard key={index} flight={flight} />
+                        flights.map((flight) => (
+                            <FlightCard key={flight.id} flight={flight} />
                         ))
                     }
             </div>
