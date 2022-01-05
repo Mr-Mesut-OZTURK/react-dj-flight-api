@@ -49,9 +49,9 @@ class FlightSerializer(serializers.ModelSerializer):
         depth=1
         
 class ReservationSerializer(serializers.ModelSerializer):
-    user = serializers.CharField()
-    user_type = serializers.CharField()
-    flight = serializers.CharField()
+    # user = serializers.CharField()
+    # user_type = serializers.CharField()
+    # flight = serializers.CharField()
     
     class Meta:
         model = Reservation

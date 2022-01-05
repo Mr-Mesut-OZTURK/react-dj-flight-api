@@ -23,6 +23,7 @@ const FlightDetail = () => {
     const key = useSelector(state => state.loginReducer)
     console.log(key)
 
+    const [userType, setUserType] = useState(1)
     const [data, setData] = useState([
         {
             "id": 1,
@@ -31,13 +32,13 @@ const FlightDetail = () => {
         }
     ])
 
-    const [userType, setUserType] = useState(
-        {
-            "id": 1,
-            "type": "Normal",
-            "price_multiplier": 1.0
-        }
-    )
+    // const [userType, setUserType] = useState(
+    //     {
+    //         "id": 1,
+    //         "type": "Normal",
+    //         "price_multiplier": 1.0
+    //     }
+    // )
 
     useEffect(() => {
         hadleFetch()
@@ -50,12 +51,17 @@ const FlightDetail = () => {
     }
 
     const handleClick = () => {
-        axios.post('https://react-dj-flight-api.herokuapp.com/api/reservations/', {
-            "user": "",
-            "user_type": "",
-            "flight": id,
-            "checkin": false
-        })
+        const data = {
+            // "user": key,
+            // "user_type": userType,
+            // "flight": flight.id,
+            // "checkin": false
+            "checkin": false,
+            "user": 1,
+            "user_type": 1,
+            "flight": 3
+        }
+        axios.post('https://react-dj-flight-api.herokuapp.com/api/reservations/', data)
             .then((response) => alert(response))
             .catch((error) => console.log(error))
     }
